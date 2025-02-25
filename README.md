@@ -19,7 +19,7 @@ This is a live network attack project I did on TryHackMe. Its's a live simulatio
 <h2>Stopping the Attack</h2>
 
 <p align="center">
-We start Snort in packet logger mode and try to figure out the attack source, service and port. The packets will be saved in a log file we can use it to read the packets <br/>
+We start Snort in packet logger mode and try to figure out the attack source, service and port. The packets will be saved in a log file so we can use it to read the packets <br/>
 <img src="https://i.imgur.com/IVKg5DB.png" height="80%" width="80%"/>
 <br />
 <br />
