@@ -1,6 +1,5 @@
 # Snort-Live-Attack
-This is a live network attack project I did on TryHackMe. Its's a live simulation project where I was asked as a SOC Analyst to stop a live brute force attack with SNORT. As a SOC Analyst you don't jump into conclusions, you investigate first. But I think a possible port that will be targeted will be port 22(SSH) as brute force attack is the attempt to remotely  trying to login into the machine with random passwords hoping one works. Possible through port 22
-
+This project involves a live network attack simulation on TryHackMe. In this scenario, I acted as a SOC Analyst tasked with stopping a live brute force attack using SNORT. As a SOC Analyst, it's crucial to investigate thoroughly before making any conclusions. Given the nature of brute force attacks, which involve attempting to remotely log into a machine using random passwords, I anticipated that port 22 (SSH) would likely be targeted.
 <h2>Utilities and Tools Used</h2>
 
 - <b>Terminal</b> 
@@ -19,7 +18,7 @@ This is a live network attack project I did on TryHackMe. Its's a live simulatio
 <h2>Stopping the Attack</h2>
 
 <p align="center">
-I started Snort in packet logger mode and try to figure out the attack source, service and port. The packets will be saved in a log file so we can use it to read the packets <br/>
+I initiated Snort in packet logger mode to identify the source, service, and port associated with the attack. The captured packets will be stored in a log file, allowing for further analysis to determine the attacker's origin and method. <br/>
 <img src="https://i.imgur.com/IVKg5DB.png" height="80%" width="80%"/>
 <br />
 <br />
@@ -29,22 +28,22 @@ I have a log file from the previous command to capture the packets going on in a
 <br />
 <br />
 
-Going through the packets I noticed a chunk of packets coming from the IP adress 10.10.245.36 port 46684 to our machine to port 22 which is the SSH port. This tells me a connection was attempted. Most likely a remote connection attempt. <br/>
+While analyzing the packet data, I observed a significant number of packets originating from IP address 10.10.245.36, specifically from port 46684, targeting our machine on port 22, which is designated for SSH. This indicates that a connection attempt was made, most likely an unauthorized remote access attempt. <br/>
 <img src="https://imgur.com/vpgskbR.png" height="80%" width="80%" />
 <br />
 <br />
 
-After I found the source of our attack, I have to create a rule to alert us whenever a similar connection attempt is made by our attacker. To make this rule, I will navigate to our local rules /etc/snort/rules/local.rules. After creating this rule I will automatically get alerts when the attacker suspicious IP attempts to connect  <br/>
+After identifying the source of the attack, I need to create a rule that will generate alerts whenever a similar connection attempt is made by the attacker. To do this, I will navigate to our local rules file at /etc/snort/rules/local.rules. Once the rule is created, I will automatically receive alerts whenever the attacker's suspicious IP attempts to connect.  <br/>
 <img src="https://i.imgur.com/YLo4rBM.png" height="80%" width="80%" />
 <br />
 <br />
 
-Now I will test my new rule in console mode which provides fast style alerts on the console screen. I want to see if i will recieve our alerts whenever theres an attempt. After testing it out and it successfully worked, now it is time to put it into action. Now I can run snort with the -A full option, which adds the printing of full alert information, as suggested in the task <br/>
+I will now test my new rule in console mode, which displays real-time alerts directly on the console screen. My objective is to verify whether I receive alerts whenever an attempt is detected. After conducting the test successfully, it is time to implement the rule in practice. I can now run Snort with the -A full option, enabling the display of comprehensive alert information, as outlined in the task requirements. <br/>
 <img src="https://i.imgur.com/UiHRhF1.png" height="80%" width="80%"/>
 <br />
 <br />
 
-After putting it into action, I successfully was able to stop the attack. As you can see at the top right corner, it says that I have successfully been able to stop the attack  <br/>
+After implementing the rule, I successfully mitigated the attack. As indicated in the top right corner, the system confirms that the attack has been successfully stopped.  <br/>
 <img src="https://i.imgur.com/CQ8yguw.png" height="80%" width="80%" />
 <br />
 <br />
