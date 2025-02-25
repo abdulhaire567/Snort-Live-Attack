@@ -1,5 +1,5 @@
 # Snort-Live-Attack
-This is a live network attack project I did on TryHackMe. Its's a live simulation project where I was asked as a SOC Analyst to stop a live brute force attack with SNORT. Even though as a SOC Analyst you don't jump into conclusions, I think a possible port that will be targeted will be port 22(SSH) as brute force attack is the attempt to remotely  trying to login into the machine with random passwords hoping one works. Possible through port 22
+This is a live network attack project I did on TryHackMe. Its's a live simulation project where I was asked as a SOC Analyst to stop a live brute force attack with SNORT. As a SOC Analyst you don't jump into conclusions, you investigate first. But I think a possible port that will be targeted will be port 22(SSH) as brute force attack is the attempt to remotely  trying to login into the machine with random passwords hoping one works. Possible through port 22
 
 <h2>Utilities and Tools Used</h2>
 
