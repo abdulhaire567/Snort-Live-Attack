@@ -19,12 +19,12 @@ This is a live network attack project I did on TryHackMe. Its's a live simulatio
 <h2>Stopping the Attack</h2>
 
 <p align="center">
-We start Snort in packet logger mode and try to figure out the attack source, service and port. The packetts will be saved in a log file we can use to to read the packets <br/>
+We start Snort in packet logger mode and try to figure out the attack source, service and port. The packets will be saved in a log file we can use it to read the packets <br/>
 <img src="https://i.imgur.com/IVKg5DB.png" height="80%" width="80%"/>
 <br />
 <br />
 
-We have a log file from the previous command to capture the packets going on in and out the network. We are going to use the command sudo snort -r snort.log.<number> -X to read the analyze the packets we captured andd hope to find where our network attack happened. -X so we can read the full packets to be able to analyze them better <br/>
+We have a log file from the previous command to capture the packets going on in and out the network. We are going to use the command sudo snort -r snort.log.<number> -X to read and analyze the packets we captured and hope to find where our network attack happened. -X so we can read the packets in full to be able to analyze them better <br/>
 <img src="https://i.imgur.com/nKz6qMp.png" height="80%" width="80%"/>
 <br />
 <br />
@@ -34,12 +34,12 @@ Going through the packets I noticed a chunk of packets coming from the IP adress
 <br />
 <br />
 
-After we have noticed the source of our attack, now we have to create a rule to alert us when ever a similar connection attempt is made by our attacker. To make this rule we will navigate to our local rules /etc/snort/rules/local.rules. After creating this rule we will automatically get alerts when the attacker suspicious IP attempts to connect  <br/>
+After we have found the source of our attack, we have to create a rule to alert us whenever a similar connection attempt is made by our attacker. To make this rule, we will navigate to our local rules /etc/snort/rules/local.rules. After creating this rule we will automatically get alerts when the attacker suspicious IP attempts to connect  <br/>
 <img src="https://i.imgur.com/YLo4rBM.png" height="80%" width="80%" />
 <br />
 <br />
 
-Now we will test our our new rule in console mode which provides fast style alerts on the console screen. We want to see if we will recieve our alerts wheneverr theres an attempt. After testing it out and it successfully worked, now it is time to put it into action. Thhis how we put it into action with the followiing command <br/>
+Now we will test our our new rule in console mode which provides fast style alerts on the console screen. We want to see if we will recieve our alerts whenever theres an attempt. After testing it out and it successfully worked, now it is time to put it into action. Now we can run snort with the -A full option, which adds the printing of full alert information, as suggested in the task <br/>
 <img src="https://i.imgur.com/UiHRhF1.png" height="80%" width="80%"/>
 <br />
 <br />
